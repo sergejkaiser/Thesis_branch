@@ -1,0 +1,38 @@
+%!TEX root=C:/Users/Sergej/Documents/GitHub/Thesis/main.tex
+\chapter{Conclusion}
+The objectives of this thesis were two-fold.
+First, assess whether the impact of IPF on the production process is such that traditional export measures no longer provide a reliable picture of technological comparative advantage.
+A second objective was to analyze the association between relative network centrality and technological comparative advantage.
+The hypothesis was motivated by the similarity of the interpretation of network centrality as how important an industry in a country in the export network is regarding \$ to the stochastic interpretation of trade shares resulting from productivity draws. \par
+To analyze technological comparative advantage, I used an structural RCA measure based on the methodology of\textcite{costinot}.
+The authors developed a theoretically consistent measure in a setup with imperfect specialization, multiple industries, and multiple countries.
+ I estimated the measure for both domestic value-added and gross exports and compared the results using simple and rank correlations. \par
+I proceeded in two steps to construct the structural RCA.
+ In a first step I estimated a regression of the log of bilateral trade flows on the log of observed productivity, the inverse of international prices, an exporter-importer fixed effect and an importer-industry pair fixed effect.
+  For this regression, I created a sample combining international relative price data from the GGDC \textcite{Inklaar2012}, R\&D data from the ANBERD OECD database and gross exports and value-added data from the \textcite{tiva2}.
+  In the second step, I regressed the log of bilateral trade flows on the full set of export-importer, importer-industry and export-industry fixed effects.
+   For the second estimation, I used the complete TiVA sample with 56 countries.  \par
+In the first regression, I obtained an estimate for $\theta$, which may be interpreted as the inverse of the productivity dispersion.
+ Comparing the point estimates of the productivity dispersion parameter to the results in \textcite{eaton} and in \textcite{costinot},
+ I find that my point estimates were at the upper bound of the 95 \% confidence interval of the first and my estimates were significantly higher than the results of the latter.
+  Moreover, I found that the estimates of $\theta$ using value-added exports showed increased values.
+   This results may be explained by the construction of domestic value-added, which are net of double counting, foreign value-added and domestically absorbed exports.
+   The variance of Domestic value-added exports band compared to gross exports.
+   If fewer variations of the regressand are explained by the same variations of the observed productivity regressor, the estimated inverse of productivity dispersion $\theta$ should be increased.  \par
+ Further, to assess the robustness of the estimates I reestimate the regression in the multiplicative form with PPML methods, as suggested by \textcite{silva}.
+  The  estimates of the dispersion parameter showed a statistical not significant decreased estimate compared to the log-linear specification.
+  An explanation of the result is that in the levels specification there is more variation of the regressand and, therefore, the estimates decreased.
+  The results confirmed that the estimated values are not sensitive to the sample or the estimation technique. \par
+Comparing the results of the structural RCA with gross exports and domestic value-added exports, I found that the simple and rank correlation coefficients showed very high coefficients.
+The result suggests that the sector-specific input and sourcing patterns are similar do not vary strongly across sectors and, therefore, cleaning gross exports of foreign value-added does not change the ranking significantly.
+Moreover, I compared the ranking results for the real estate industry to the results of \textcite{Koopman}.
+In contrast to the authors, I find that domestic value-added exports do not change the ranking significantly. \par
+ The second objective of this thesis was to analyze the empirical relation between relative network centrality and structural RCA.
+ In network propagation of shocks literature, it was shown that for a single layer production network that network centrality is a first-order characteristic of how many actors contribute in \$ terms to the network.
+ This interpretation is similar to the stochastic interpretation of trade shares as a result of productivity draws.
+   Hence,  I  analyzed the association between relative centrality and structural RCA.
+   The results of a correlation analysis showed a stronger rank correlation than simple correlation and hence pointed out that the association is rather monotone than linear between both measures.
+   In conclusion, the strong empirical correlation supports the hypothesis. \par
+  A direction for future work is to establish a theoretical model that explains the strong association of relative network centrality of an industry in a country in the international production network and structural RCA.
+  Moreover, future work may analyze the association between a RCA ranking based on domestic value-added exports and the ranking predicted by the Heckscher-Ohlin model.
+\endinput

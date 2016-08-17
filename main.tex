@@ -1,0 +1,229 @@
+%!TEX TS-program=pdflatexmk
+\documentclass[11pt,leqno,a4paper]{scrbook}
+\usepackage[backend=biber, authordate, autocite=inline , firstinits=true, uniquename=false, isbn=false, url=false,  hyperref=true , doi=false]{biblatex-chicago}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{overpic}
+\usepackage{thesisMacros}
+\usepackage{geometry}
+
+
+\renewcommand{\baselinestretch}{1.2}
+
+\sisetup{
+	detect-mode,
+		group-digits		= false,
+		input-symbols		= ( ) [ ] - +,
+		table-align-text-post	= false,
+		input-signs             = ,
+		        round-mode              = places,
+        round-precision         = 2
+ }
+
+\usepackage{textcomp}
+\newcommand*\vtick{\textsc{\char13}}
+\addbibresource{main.bib}
+\usepackage{xcolor,colortbl}
+\usepackage{footnote}
+\makeatletter
+\renewcommand{\onehalfspacing}{%
+\setstretch{1.5}% default
+\ifcase \@ptsize \relax % 10pt
+\setstretch {1.5}%
+\or % 11pt
+\setstretch {1.5}%
+\or % 12pt
+\setstretch {1.5}%
+\fi}
+ \setlength{\parindent}{0.5cm}
+\makeindex
+\begin{document}
+\newgeometry{textwidth=540pt,textheight=780pt,top=20pt,left=20pt,right=20pt}
+
+
+\frontmatter
+\pagenumbering{Roman}
+%\include{first_page}
+\newgeometry{textwidth=540pt,textheight=780pt,top=20pt,left=20pt,right=20pt}
+\begin{titlepage}
+	
+	\begin{figure}[tc]{%
+			\begin{overpic}[width=1\textwidth,natwidth=50,natheight=0]{Picture1.png}
+				\put(46,4){\color{white}\large{\textbf{FACULTY OF ECONOMICS AND BUSINESS}}}
+			\end{overpic}
+		}
+	\end{figure}
+	
+	\vspace*{4.5cm}
+	{\color{kuleuven1}{\Huge  Structural Ricardian Comparative Advantage and \\ Network Centrality}}
+	
+	\vspace*{0.5cm}
+	{\Large }
+	
+	\begin{figure}[bl]
+		%\centering
+		\begin{minipage}[c]{0.4\textwidth}  {%
+				\begin{overpic}[width=0.9\textwidth,natwidth=300,natheight=370]{Picture2.png}
+					\put(70,45){\begin{minipage}[c]{1.80\textwidth}
+							\begin{flushright}
+								
+								{\Large Sergej Kaiser} \linebreak
+								{0489053} \linebreak
+								
+								\textbf{{\large Thesis submitted to obtain \linebreak
+										the degree of}} \linebreak
+								\linebreak
+								{\large Master of Science in Economics}\linebreak
+								{\large Research}\linebreak
+								\linebreak
+								
+								\textbf{{\large Promotor:}}  Dr. Liza Archanskaia \linebreak
+								
+								\linebreak
+								
+								\textbf{{\large Academic year: }} {\large 2015/2016}
+								\linebreak
+							\end{flushright}
+						\end{minipage}}
+					\end{overpic}
+				}
+			\end{minipage}
+			
+			
+			\begin{picture}(540,0.2)
+			\put(0,0){\colorbox{kuleuven1}{\makebox(540,0.2){}}}
+			\end{picture}
+		\end{figure}
+		
+	\end{titlepage}
+\pagestyle{empty}
+\tableofcontents
+
+\restoregeometry
+\setcounter{tocdepth}{1}
+
+
+\chapter*{Abbreviations}\label{av}
+
+
+\addcontentsline{toc}{chapter}{Abbreviations}
+\markboth{Abbreviations}{Abbreviations}
+\begin{tabular}{ll}
+ANBERD&Analytical Business Enterprise Research and Development \\
+Backw. & Backward \\
+F.O.B. & Free on Board  \\
+Forw. & Forward \\
+G7& Group of Seven Leading Industry Nations \\
+I.I.D. & Independent and Identical Distributed \\
+ISIC & International Standard Industry Classification \\
+IV & Instrumental Variable  \\
+OECD & Organization for Economic Co-operation and Development \\
+OLS & Ordinary Least Squares \\
+MFN & Most Favorite Nation\\
+MLE & Maximum Likelihood \\
+PMM& Predictive Mean Matching \\
+%PMLE & Pseudo Maximum Likelihood \\
+%PPML & Poisson Pseudo Maximum Likelihood\\
+RCA& Ricardian Comparative Advantage \\
+STAN & Structural Analysis Database \\
+TiVA& Trade in Value-Added \\
+WIOD & World Input-Output Database \\
+WIOT& World Input-Output Table \\
+WTO & World Trade Organization \\
+VAX & Value-Added Exports \\
+\end{tabular}
+\listoffigures
+\listoftables
+
+\chapter*{Symbols}\label{sv}
+\addcontentsline{toc}{chapter}{Symbols}
+\markboth{Symbols}{Symbols}
+\footnotesize
+\begin{tabular}[h]{ll}
+Variable & Description \\ \midrule
+  $\theta$ & Cost dispersion parameter \\
+$V$ & Domestic value-added share matrix \\
+ $C^e$ & Eigenvector centrality \\
+  $\lambda$  & Eigenvalue\\
+$n$ & A positive integer \\
+$\delta_{i,j}$& Exporter-importer fixed effects \\
+$\delta^k_i$ & Exporter-industry fixed effects \\
+  $F^k_{i,j}$& Exports for final demand \\
+  $z_i^k$ & Fundamental productivity \\
+  $A^k$ & Input-output coefficient matrix \\
+ $I^k_{i,j}$ & Intermediate exports from  industry $k$ in country $i$ to country $j$   \\
+$a^k_i $ & Labour unit requirement in industry $k$ in country $i$ \\
+%$\mu$ & Expected value  of a random variable with poisson distribution  \\
+$B$ & Leontief inverse \\
+$g^k$ & Matrix of graph links \\
+$\cG^k$ &Binary trade network in industry $k$ \\
+$N$ & Graph nodes \\
+$x^k_{i,j} $ & Gross exports from  industry $k$ in country $i$ to country $j$  \\
+$\tilde{x_i}^k $ & Openness corrected gross exports from  industry $k$ in country $i$ to country $j$   \\
+ $\tilde{z_i}^k$& Observed productivity \\
+  $\omega$ & Variety \\
+ % $v_i$ & random variable \\
+ $W^k$ & Weight matrix for industry $k$ \\
+$ITN^k$& International Trade Network in industry $k$ \\ \bottomrule
+\end{tabular}
+
+
+
+
+
+
+\setcounter{tocdepth}{1}
+
+
+
+\setcounter{equation}{1}
+\pagestyle{empty}
+
+\clearpage
+
+\chapter*{Preface\hfill} \addcontentsline{toc}{chapter}{Preface}
+
+\begin{flushright}
+This Master thesis  is submitted to partially fulfill the requirements to obtain the degree of Master of Science in
+Economics from the KU Leuven. Especially,  I want to thank my promotor Liza Archanskaia for her helpful comments and discussions, which helped me to advance this thesis. %Furthermore, I want to thank the fellow students:  Burak,  Kazimira , Joana, Moritz, Nurul, Simon, Sean and Thomas, with whom I spent a lot of hours working on this thesis. Especially, I want to thank  Moritz, Nurul and Ilja for their valuable comments in the earlier stages of the thesis.
+Leuven, 15/03/2016.
+\end{flushright}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\mainmatter
+
+\pagestyle{headings}
+\include{chapter1}
+\include{chapter3}
+%\input{chapter3_ricardo}
+\include{Math_theorem_generalization}
+\input{chapter3_estimation}
+\input{chapter3_results}
+\input{chapter3_relative_ranking}
+\include{chapter4}
+\include{chapter5}
+\clearpage
+\printbibliography
+\vfill
+\pagestyle{empty}
+\appendix
+\sisetup{
+	detect-mode,
+		group-digits		= false,
+		input-symbols		= ( ) [ ] - +,
+		table-align-text-post	= false,
+		input-signs             = ,
+		        round-mode              = places,
+        round-precision         = 2
+ }
+
+
+\tocless \chapter{Appendix}
+\addcontentsline{toc}{chapter}{Appendix}
+\include{appendix}
+\clearpage
+\newpage
+\thispagestyle{empty}
+\newgeometry{textwidth=540pt,textheight=780pt,top=20pt,left=20pt,right=20pt}
+\include{last_page}
+\end{document}

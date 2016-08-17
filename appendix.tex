@@ -1,0 +1,590 @@
+%!TEX root=/Users/sergej/Documents/Master/Thesis/main.tex 
+
+\section{Decomposition of gross exports into value-added exports}
+I use the indicators from the OECD-TiVA database later to compute the RCA ranking based on the two step method described in \textcite{costinot} and compare the  rankings to an RCA ranking based on gross exports.  
+\par 
+Input-Output tables are models of the economy based on the work of \textcite{leontief}. The intuitive insight of  Leontief was to record the usage of intermediate inputs and production factors to produce units of output in a matrix. He showed that the recursion  can be mathematically solved until one accounts for the complete set of intermediate inputs to produce one unit of output.  Leontief's insight of modeling input-output relations is sufficient to decompose gross exports into domestic value-added exports \parencite{Koopman}. \par
+At this point, a note on the data limitations concerning Input-Output tables is necessary.  Ideally value-added exports data would be decomposed from global Input-Output tables provided by national statistical agencies. Yet, global input-output data do not exist, and therefore scientist and different international organizations construct synthetic global Input-Output tables based on National Input-Output tables \parencite{johnson}. \par 
+In the following I will illustrate the decomposition of gross exports into forward and backward vale-added exports for two simple cases. Interested readers may be referred to the work of \textcite{Koopman} for a more general treatment.
+%Next, I lay out the definition of domestic value-added exports. I define $x^k_{i,j}$  as gross exports from industry $k$ in exporting country $i$  to  importing country $j$. Further I decompose bilateral gross exports $x_{i,j}$ as the sum of  intermediate exports $I^k_{i,j}$ and exports to final demand $F^k_{i,j}$, thus  \[ x_{i,j}=\sum_k x^k_{i,j} =\sum_k (I^k_{i,j}+F^k_{i,j} )\]. In addition I define $V_i$ as a $K \times K$ matrix, which contains on the diagonal the domestic value-added shares from each industry $k$ in country $i$. 
+%\[V_i=\left( \begin{matrix}
+%    V_{i,1} & \ldots  &0 \\
+%\vdots & \ddots& \vdots \\
+%   0 & \ldots  & V_{i,k} 
+%\end{matrix} \right)
+%\]
+% Further, I denote with  $B=(\mathcal{I}-A)^{-1}$ the global Leontief inverse with $NK \times NK$ dimensions, $A$  denotes the global Input-Output coefficient matrix and $\mathcal{I}$ denotes the identity matrix. \par 
+% The Leontief inverse describes by how much one country's gross output increases if the final demand of another country increase by one unit \parencite{wang2013}. \par The Input-Output coefficient matrix describes the production technology. \par 
+% Domestic value-added embodied in gross exports is therefore
+% \[x^{DVA}_i=\sum_{j} x^{DVA}_{i,j} = \sum_{j} V_{i}B_{i,i}     x_{i,j}\]
+%where the index $j$ denotes the partner country, $x^{DVA}_{i,j}$ denotes the $K \times 1$ vector denoting a country $i$'s domestic value-added embodied in gross exports to country $j$ for any industry $k$ and $B_{i,i}$ is the block diagonal matrix of $B$ of the dimensions $K \times K$.  \par
+\section{ISIC and ISO 3 Alpha Classification}
+\begin{table}[H]
+\centering \caption{ISIC Revision 3.1}
+\begin{tabular}{lll}
+\toprule
+ISIC Code&Short & TiVA Description \\ 
+\midrule
+  01-05  &Agriculture & Agriculture, hunting, forestry and fishing \\ 
+10-14& Mining& Mining and quarrying \\ 
+15-16& Food & Food products, beverages and tobacco \\ 
+17-19&  Textiles& Textiles, textile products, leather and footwear \\ 
+20& Wood & Wood and products of wood and cork \\ 
+  21-22& Paper & Pulp, paper, paper products, printing and publishing \\ 
+  23 &Fuel& Coke, refined petroleum products and nuclear fuel \\ 
+  24 &Chemicals& Chemicals and chemical products \\ 
+  25 &Plastic& Rubber and plastics products \\ 
+  26&Minerals & Other non-metallic mineral products \\ 
+  27-28&Metals & Basic metals and fabricated metal products \\ 
+  29 &Machinery & Machinery and equipment, nec  \\ 
+  30-33&Electrical & Electrical and optical equipment \\ 
+  34-35 &Transport& Transport equipment \\ 
+  36-37 &Misc. Manufacturing& Manufacturing nec; recycling  \\ 
+  40-41 &Electricity & Electricity, gas and water supply \\ 
+  45  & Construction& Construction \\ 
+  50-52&Trade & Wholesale and retail trade; repairs \\ 
+ 55 &Gastronomy & Hotels and restaurants \\ 
+  60-64&Communication & Transport and storage, post and telecommunication \\ 
+  65-67 &Finance& Financial intermediation \\ 
+  70-74 &Real estate& Real estate, renting and business activities \\ 
+  75-95& Social & Community, social and personal services  \\ 
+   \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\footnotesize
+\centering\caption{ISO 3 Alpha Code}
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{1}{l}l*{1}{l}}
+\toprule\endfirsthead\midrule\endhead\midrule\endfoot\endlastfoot
+  COU             &\multicolumn{1}{c}{Country} &COU             &\multicolumn{1}{c}{Country}\\
+\midrule
+ARG             &     Argentina& ITA             &     Italy\\
+AUS             &     Australia& JPN             &     Japan\\
+AUT             &     Austria& KOR             &     Korea\\
+BEL             &     Belgium& LTU             &     Lituhania\\
+BGR             &     Bulgaria&LUX             &     Luxembourg\\
+BRA             &     Brazil& LVA             &     Latvia\\
+CAN             &     Canada& MEX             &     Mexico\\
+CHE             &     Switzerland& MYS             &     Malaysia\\
+CHL             &     Chile& NLD             &     Netherlands\\
+CHN             &    China& NOR             &     Norway\\
+COL             &     Colombia&  NZL             &     New Zeeland\\
+CYP             &     Cyprus& PHL             &     Philippiens\\
+CZE             &     Czech Republic& POL             &     Poland \\
+DEU             &     Germany& PRT             &     Portugal\\
+DNK             &     Denmark& ROU             &     Romania\\
+ESP             &     Spain&  ROW             &     Rest of the World\\
+EST             &     Estonia& RUS             &     Russian Federation\\
+FIN             &     Finland& SGP             &     Singapore\\
+FRA             &     France&  SVK             &     Slovakia\\
+GBR             &     United Kingdom& SVN             &  Slovenia\\
+GRC             &     Greece& SWE             &     Sweden\\
+HKG             &     Hong Kong& THA             &     Thailand\\
+HRV             &     Croatia& TUN             &     Tunisia\\
+HUN             &     Hungary& TUR             &     Turkey\\
+IDN             &     India& TWN             &     Taiwan\\
+IND             &     Indonesia& USA             &    United States of America\\
+IRL             &     Ireland& VNM             &     Vietnam\\
+ISR             &     Israel& ZAF             &     South Africa\\ 
+\bottomrule
+\end{longtable}
+}
+\end{table}
+
+\section{Data Appendix}
+\subsection{Sample Statistics}
+
+\begin{table}[H]\centering\caption{Summary statistics in estimation sample }
+\footnotesize
+\label{tab:sumstat}
+\begin{adjustbox}{width=1\textwidth}
+\begin{tabular}{l SSSSS}\toprule
+\multicolumn{1}{c}{\textbf{Variable}} & \textbf{Mean}
+ & \textbf{Std. Dev.}& \textbf{Min.} &  \textbf{Max.} & \textbf{N}\\ \midrule
+Log Backward Value Added Exports&  2.443 & -4.60517  & 10.75376&2.867  & 17453\\
+Log Gross Exports & 2.742 & 2.871  & - 4.60517  & 11.10807& 17505\\
+Log Forward Value-Added Exports& 3 & 2.351 & - 4.605 & 10.739 & 15999\\
+Log Productivity & .2664933 &   .2741434&  -.6715387  & 1.166582 & 18444\\
+Log R\&D & 17.80132 &   2.441721 &  10.74497   & 24.7591 & 17313\\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+%\begin{table}[h]\centering\caption{Pairwise Correlation in estimation sample }
+%\footnotesize
+%\label{tab:pwcorr}
+%\scalebox{0.85}{
+%{
+%\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+%\begin{tabular}{l*{4}{c}}
+%\toprule
+%          &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+%          &\multicolumn{1}{c}{log gross exports}&\multicolumn{1}{c}{log of productivity}&\multicolumn{1}{c}{log R \&D expenditures}&\multicolumn{1}{c}{log domestic value-added exports}\\
+%\midrule
+%log gross exports&                     &  -0.0921\sym{***}&    0.434\sym{***} & 0.996\sym{***}\\
+%
+%log of productivity&  -0.0921\sym{***}&                  &   -0.200\sym{***} &  -0.0996\sym{***}\\
+%
+%log R\&D expenditures &    0.434\sym{***}&   -0.200\sym{***}&              &    0.446\sym{***}    \\
+%
+%log domestic value-added exports&          0.434 &	0.446&	0.488	-0.200	1.000	
+%\\
+%\bottomrule
+%\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+%\end{tabular}
+%}
+%}\end{table}
+\begin{table}[H]
+\centering\caption{Pairwise correlation in estimation sample }
+\footnotesize
+\label{tab:pwcorr}
+\scalebox{0.8}{
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{lSSSSS}\toprule
+\multicolumn{1}{c}{Variables} &\multicolumn{1}{c}{Log gross exports}&\multicolumn{1}{c}{Log backward value-added exports}&\multicolumn{1}{c}{ Log forward value-added exports}&\multicolumn{1}{c}{Log Productivity}&\multicolumn{1}{c}{Log R\& D}\\ \midrule
+Log gross exports								 &1.000 &   		& 		  &				&   \\
+Log backward value-added exports &0.996&1.000 & 		  &				&    \\
+Log forward value-added exports   &0.872&0.890&1.000 & 				&     \\
+Log productivity									&-0.092&-0.100&-0.211&1.000& 		\\
+log R\&D 												&0.434&0.446&0.488&-0.200&1.000\\
+\bottomrule
+%\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+}
+}
+\end{table}
+
+\begin{table}[H]
+\footnotesize
+\centering\caption{N. obs / IND  in estimation sample}
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{1}{c} l*{1}{c}}
+\toprule\endfirsthead\midrule\endhead\midrule\endfoot\endlastfoot
+          \multicolumn{1}{c}{IND}          &\multicolumn{1}{c}{N}       &    \multicolumn{1}{c}{IND}          &\multicolumn{1}{c}{N}\\
+\midrule
+01-05       &         841      &
+10-14       &         841         \\
+\addlinespace
+15-16       &         841      &
+17-19       &         841         \\
+\addlinespace
+20          &         841      &
+21-22       &         841         \\
+\addlinespace
+23          &         841      &
+24          &         841         \\
+
+\addlinespace
+25          &         841      &
+26          &         841         \\
+
+\addlinespace
+27-28       &         841      &
+29          &         841         \\
+
+\addlinespace
+30-33       &         841      &
+34-35       &         841         \\
+
+\addlinespace
+36-37       &         841      &
+45          &         841         \\
+
+\addlinespace
+50-52       &         841      &
+55          &         841         \\
+
+\addlinespace
+60-64       &         841      &
+65-67       &         841         \\
+
+\addlinespace
+70-74       &         841      &
+75-95       &         841         \\
+
+\addlinespace
+Total       &       18502         \\
+
+\midrule
+\bottomrule
+\end{longtable}
+}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\centering \caption{N. obs /  COU in  estimation   sample }
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{1}{c}l*{1}{c}}
+\toprule\endfirsthead\midrule\endhead\midrule\endfoot\endlastfoot
+   COU             &\multicolumn{1}{c}{N}&  COU             &\multicolumn{1}{c}{N}\\
+\midrule
+AUS         &         572     &
+AUT         &         572            \\ \addlinespace
+BEL         &         572     &
+CAN         &         572        \\ \addlinespace
+CZE         &         572     &
+DEU         &         572        \\ \addlinespace
+ESP         &         572     &
+EST         &         572        \\ \addlinespace
+FIN         &         572     &
+FRA         &         572        \\ \addlinespace
+GBR         &         572     &
+GRC         &         572        \\ \addlinespace
+HUN         &         572     &
+IRL         &         572        \\ \addlinespace
+ITA         &         572     &
+JPN         &         572        \\ \addlinespace
+KOR         &         572     &
+LUX         &         572        \\ \addlinespace
+MEX         &         572     &
+NLD         &         572        \\ \addlinespace
+POL         &         572     &
+PRT         &         572        \\ \addlinespace
+SVK         &         572     &
+SVN         &         572        \\ \addlinespace
+TUR         &         572     &
+USA         &         572        \\ \addlinespace
+Total       &        \multicolumn{2}{c}{114872}         \\
+\bottomrule
+\end{longtable}
+}
+\end{table}
+
+\begin{table}[H]
+\footnotesize
+\centering\caption{N. obs / COU in structural RCA sample}
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{1}{c}l*{1}{c}}
+\toprule\endfirsthead\midrule\endhead\midrule\endfoot\endlastfoot
+  COU             &\multicolumn{1}{c}{N} &COU             &\multicolumn{1}{c}{N}\\
+\midrule
+\midrule
+ARG         &         946        & 
+AUS         &         946         \\
+\addlinespace
+AUT         &         946        & 
+BEL         &         946         \\
+\addlinespace
+BGR         &         946        & 
+BRA         &         946         \\
+\addlinespace
+CAN         &         946        & 
+CHE         &         946         \\
+\addlinespace
+CHL         &         946        & 
+CHN         &         946         \\
+\addlinespace
+COL         &         946        & 
+CYP         &         946         \\
+\addlinespace
+CZE         &         946        & 
+DEU         &         946         \\
+\addlinespace
+DNK         &         946        & 
+ESP         &         946         \\
+\addlinespace
+EST         &         946        & 
+FIN         &         946         \\
+\addlinespace
+FRA         &         946        & 
+GBR         &         946         \\
+\addlinespace
+GRC         &         946        & 
+HKG         &         946         \\
+\addlinespace
+HRV         &         946        & 
+HUN         &         946         \\
+\addlinespace
+IDN         &         946        & 
+IND         &         946         \\
+\addlinespace
+IRL         &         946        & 
+ISR         &         946         \\
+\addlinespace
+ITA         &         946        & 
+JPN         &         946         \\
+\addlinespace
+KOR         &         946        & 
+LUX         &         946         \\
+\addlinespace
+MEX         &         946        & 
+NLD         &         946         \\
+\addlinespace
+NOR         &         946        & 
+NZL         &         946         \\
+\addlinespace
+POL         &         946        & 
+PRT         &         946         \\
+\addlinespace
+SVK         &         946        & 
+SVN         &         946         \\
+\addlinespace
+SWE         &         946        & 
+TUR         &         946         \\
+\addlinespace
+USA         &         946        & 
+Total       &       40678         \\
+\bottomrule
+\end{longtable}
+}
+\end{table}
+\begin{table}[H]
+\centering\caption{N. obs / IND in  structural RCA sample}
+ {
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{1}{c}l*{1}{c}}
+\toprule\endfirsthead\midrule\endhead\midrule\endfoot\endlastfoot
+          \multicolumn{1}{c}{IND}          &\multicolumn{1}{c}{N}& \multicolumn{1}{c}{IND}          &\multicolumn{1}{c}{N}\\
+\midrule                  
+01-05       &        1849       &
+10-14       &        1849         \\
+\addlinespace
+15-16       &        1849       &
+17-19       &        1849         \\
+\addlinespace
+20          &        1849       &
+21-22       &        1849         \\
+\addlinespace
+23          &        1849       &
+24          &        1849         \\
+\addlinespace
+25          &        1849       &
+26          &        1849         \\
+\addlinespace
+27-28       &        1849       &
+29          &        1849         \\
+\addlinespace
+30-33       &        1849       &
+34-35       &        1849         \\
+\addlinespace
+36-37       &        1849       &
+45          &        1849         \\
+\addlinespace
+50-52       &        1849       &
+55          &        1849         \\
+\addlinespace
+60-64       &        1849       &
+65-67       &        1849         \\
+\addlinespace
+70-74       &        1849       &
+75-95       &        1849         \\
+\addlinespace
+Total       &       \multicolumn{2}{c}{40678 }        \\
+\bottomrule
+\end{longtable}
+}
+\end{table}
+
+\subsection{First Stage}
+\begin{table}[H]
+\footnotesize
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{3}{S}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+            &\multicolumn{1}{c}{Full Sample}&\multicolumn{1}{c}{Without primary industries}&\multicolumn{1}{c}{Without primary industries $\text{high}^1$ } \\
+\midrule
+Log of R\&D  &      .0221331 \sym{***}&        .0225872   \sym{***}&       .0203635   \sym{***}\\
+            &        (0.002)        &     (.0020154)         &     (.0022056)       \\
+\midrule
+Exporter Importer FE & \multicolumn{1}{c}{Yes} & \multicolumn{1}{c}{Yes}& \multicolumn{1}{c}{Yes}\\
+Importer Industry FE & \multicolumn{1}{c}{Yes}& \multicolumn{1}{c}{Yes}& \multicolumn{1}{c}{Yes} \\
+\(N\)       &     19343    &     17661    &         15283         \\
+%\(R^{2}\)   &          0.614         &       0.645         &       0.693          \\
+F (excluding dummies)    &     125.60         &      88.171         &    85.24         \\
+Imputations & 29 & 29 & 29 \\
+\bottomrule
+\multicolumn{4}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{4}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+
+\end{table}
+%\subsection{Correlation Robustness}
+%\begin{table}[H]
+%\footnotesize
+%\centering
+%  \resizebox{0.9\textwidth}{!}{\begin{minipage}{\textwidth}
+%\caption{Correlation structural RCA and relative network centrality -- robustness to changes in time, normalization and sample coverages}
+%\label{tab:productivity_centrality_without_row}
+%\begin{tabular}{l*{8}{c}}
+%  \toprule
+% &\multicolumn{2}{c}{with Rest of the world 2005}& \multicolumn{2}{c}{with Rest of the world 1995} & \multicolumn{2}{c}{without Rest of the World} & \multicolumn{2}{c}{estimation sample*} \\ 
+% ISIC & Pearson & Spearman & Pearson & Spearman &Pearson  & Spearman & Pearson  & Spearman \\ \midrule
+%15-16 & 0.87 & 0.76 & 0.86 & 0.87 & 0.88 & 0.76 & 0.90 & 0.84   \\ %1 %10 %1 %1 %3 %08 
+%  17-19 & 0.61 & 0.95 & 0.74 & 0.90  & 0.64 & 0.92 & 0.79 & 0.88 \\ %13 %5 %3 %3 %18 %7
+%  20 & 0.74 & 0.88 & 0.65 & 0.80 & 0.66 & 0.89 & 0.70 & 0.95 \\  %9 %8 %8%1%4%7
+%  21-22 & 0.74 & 0.93 & 0.73 & 0.93 & 0.76 & 0.93 & 0.73 & 0.92 \\  % small differences all over
+%  23 & 0.75 & 0.78 & 0.58 & 0.82 & 0.72 & 0.78 & 0.85 & 0.81 \\  %17
+%  24 & 0.77 & 0.93 & 0.67 & 0.93 & 0.71 & 0.93 & 0.87 & 0.91 \\ 
+%  25 & 0.71 & 0.95 & 0.77 & 0.93 & 0.74 & 0.95 & 0.83 & 0.91 \\ 
+%  26 & 0.65 & 0.97 & 0.80 & 0.93 & 0.72 & 0.95 & 0.83 & 0.94 \\ 
+%  27-28 & 0.78 & 0.94 & 0.76 & 0.93 & 0.65 & 0.92 & 0.75 & 0.88 \\ 
+%  29 & 0.73 & 0.96 & 0.69 & 0.94 & 0.70 & 0.94 & 0.83 & 0.90 \\ 
+%  30-33 & 0.66 & 0.94 & 0.70 & 0.94 & 0.68 & 0.95 & 0.76 & 0.92 \\ 
+%  34-35 & 0.70 & 0.93 & 0.71 & 0.93 & 0.73 & 0.91 & 0.82 & 0.87 \\ 
+%  36-37 & 0.61 & 0.90 & 0.79 & 0.93 & 0.63 & 0.86 & 0.76 & 0.93 \\ 
+%  45 & 0.55 & 0.89 & 0.76 & 0.89 & 0.61 & 0.89 & 0.65 & 0.82 \\ 
+%  50-52 & 0.79 & 0.92 & 0.80 & 0.92 & 0.81 & 0.91 & 0.81 & 0.88 \\ 
+%  55 & 0.58 & 0.89 & 0.74 & 0.80 & 0.63 & 0.88 & 0.79 & 0.79 \\ 
+%  60-64 & 0.66 & 0.87 & 0.79 & 0.87 & 0.69 & 0.84 & 0.89 & 0.82 \\ 
+%  65-67 & 0.72 & 0.92 & 0.73 & 0.91 & 0.73 & 0.92 & 0.78 & 0.88 \\ 
+%  70-74 & 0.69 & 0.85 & 0.79 & 0.94 & 0.69 & 0.83 & 0.67 & 0.82 \\ 
+%  75-95 & 0.51 & 0.85 & 0.77 & 0.88 & 0.54 & 0.82 & 0.69 & 0.67 \\ \midrule %26 %3 %3 %3 %18%18
+%  AVG & 0.69 & 0.90 & 0.74 & 0.90 & 0.70 & 0.89 & 0.78 & 0.87 \\ 
+%  median & 0.70 & 0.92 & 0.75 & 0.92 & 0.70 & 0.91 & 0.79 & 0.88 \\ 
+%   \bottomrule
+%   %  \multicolumn{5}{l}{*based on domestic valued added exports}\\
+%%  \multicolumn{5}{l}{**The estimation sample covers the same countries}\\
+%% \multicolumn{5}{l}{Ricardo estimation sample}\\
+%   \multicolumn{5}{l}{Benchmark Industry ISIC Rev. 3 01-05 } \\
+%\multicolumn{5}{l}{Benchmark Country United States of America \& Rest  of the World}
+%  \end{tabular}
+%      \end{minipage}}
+%\end{table}
+%
+%%\begin{table}[H]
+%%\footnotesize
+%%\centering\caption{ Correlation of revealed productivity based on domestic value added exports in 1995 \& 2005 without Rest of the World}
+%%
+%\begin{tabular}{lcccc}
+%  \toprule
+% IND & Pearson & Spearman & p-val pearson & p-val spearman \\ 
+%  \midrule
+%15-16 & 0.87 & 0.82 & 0.00 & 0.00 \\ 
+%  17-19 & 0.94 & 0.94 & 0.00 & 0.00 \\ 
+%  20 & 0.89 & 0.91 & 0.00 & 0.00 \\ 
+%  21-22 & 0.92 & 0.92 & 0.00 & 0.00 \\ 
+%  23 & 0.83 & 0.84 & 0.00 & 0.00 \\ 
+%  24 & 0.93 & 0.93 & 0.00 & 0.00 \\ 
+%  25 & 0.93 & 0.92 & 0.00 & 0.00 \\ 
+%  26 & 0.91 & 0.92 & 0.00 & 0.00 \\ 
+%  27-28 & 0.93 & 0.95 & 0.00 & 0.00 \\ 
+%  29 & 0.95 & 0.93 & 0.00 & 0.00 \\ 
+%  30-33 & 0.94 & 0.91 & 0.00 & 0.00 \\ 
+%  34-35 & 0.92 & 0.89 & 0.00 & 0.00 \\ 
+%  36-37 & 0.91 & 0.89 & 0.00 & 0.00 \\ 
+%  45 & 0.76 & 0.78 & 0.00 & 0.00 \\ 
+%  50-52 & 0.93 & 0.93 & 0.00 & 0.00 \\ 
+%  55 & 0.87 & 0.83 & 0.00 & 0.00 \\ 
+%  60-64 & 0.88 & 0.83 & 0.00 & 0.00 \\ 
+%  65-67 & 0.89 & 0.83 & 0.00 & 0.00 \\ 
+%  70-74 & 0.82 & 0.80 & 0.00 & 0.00 \\ 
+%  75-95 & 0.87 & 0.84 & 0.00 & 0.00 \\ \midrule
+%  AVG & 0.89 & 0.88 & &  \\ 
+%   \bottomrule
+%   \multicolumn{5}{l}{Benchmark Industry ISIC Rev. 3 01-05 }\\
+%\multicolumn{5}{l}{Benchmark Country USA}\\
+%\end{tabular}
+%\end{table}
+%
+%\begin{table}[H]
+%\footnotesize
+%\centering\caption{ Correlation between network centrality based on domestic value added exports in 1995 \& 2005 without Rest of the World} 
+%\begin{tabular}{l*{4}{c}}
+%  \toprule
+% IND & Pearson & Spearman & P-val pearson & P-val spearman \\ 
+%  \midrule
+%15-16 & 0.84 & 0.83 & 0.00 & 0.00 \\ 
+%  17-19 & 0.88 & 0.94 & 0.00 & 0.00 \\ 
+%  20 & 0.65 & 0.90 & 0.00 & 0.00 \\ 
+%  21-22 & 0.92 & 0.92 & 0.00 & 0.00 \\ 
+%  23 & 0.89 & 0.69 & 0.00 & 0.00 \\ 
+%  24 & 0.97 & 0.92 & 0.00 & 0.00 \\ 
+%  25 & 0.97 & 0.92 & 0.00 & 0.00 \\ 
+%  26 & 0.79 & 0.94 & 0.00 & 0.00 \\ 
+%  27-28 & 0.74 & 0.93 & 0.00 & 0.00 \\ 
+%  29 & 0.94 & 0.94 & 0.00 & 0.00 \\ 
+%  30-33 & 0.88 & 0.92 & 0.00 & 0.00 \\ 
+%  34-35 & 0.84 & 0.90 & 0.00 & 0.00 \\ 
+%  36-37 & 0.73 & 0.89 & 0.00 & 0.00 \\ 
+%  45 & 0.32 & 0.84 & 0.02 & 0.00 \\ 
+%  50-52 & 0.82 & 0.95 & 0.00 & 0.00 \\ 
+%  55 & 0.82 & 0.84 & 0.00 & 0.00 \\ 
+%  60-64 & 0.77 & 0.90 & 0.00 & 0.00 \\ 
+%  65-67 & 0.96 & 0.86 & 0.00 & 0.00 \\ 
+%  70-74 & 0.76 & 0.90 & 0.00 & 0.00 \\ 
+%  75-95 & 0.86 & 0.90 & 0.00 & 0.00 \\   \midrule
+%  AVG & 0.82 & 0.89 &   &   \\ 
+%   \bottomrule
+%   \multicolumn{5}{l}{Benchmark Industry ISIC Rev. 3 01-05 }\\
+%\multicolumn{5}{l}{Benchmark Country USA}\\
+%\end{tabular}
+%\end{table}
+%
+%
+%
+%\begin{table}[H]
+%\centering\caption{ Correlation of revealed productivity based on domestic value added exports  in 1995 \& 2005 in estimation sample*}
+%\label{tab:productivity_year_estimation_sample}
+%\begin{tabular}{l*{4}{c}}
+%  \toprule
+%ISIC Code & Pearson  & Spearman & P-val pearson & P-val spearman \\ 
+%  \midrule
+%15-16 & 0.93 & 0.86 & 0.00 & 0.00 \\ 
+%  17-19 & 0.94 & 0.93 & 0.00 & 0.00 \\ 
+%  20 & 0.92 & 0.93 & 0.00 & 0.00 \\ 
+%  21-22 & 0.94 & 0.93 & 0.00 & 0.00 \\ 
+%  23 & 0.83 & 0.81 & 0.00 & 0.00 \\ 
+%  24 & 0.93 & 0.94 & 0.00 & 0.00 \\ 
+%  25 & 0.95 & 0.96 & 0.00 & 0.00 \\ 
+%  26 & 0.92 & 0.90 & 0.00 & 0.00 \\ 
+%  27-28 & 0.90 & 0.94 & 0.00 & 0.00 \\ 
+%  29 & 0.94 & 0.94 & 0.00 & 0.00 \\ 
+%  30-33 & 0.93 & 0.88 & 0.00 & 0.00 \\ 
+%  34-35 & 0.92 & 0.85 & 0.00 & 0.00 \\ 
+%  36-37 & 0.89 & 0.84 & 0.00 & 0.00 \\ 
+%  45 & 0.67 & 0.77 & 0.00 & 0.00 \\ 
+%  50-52 & 0.92 & 0.89 & 0.00 & 0.00 \\ 
+%  55 & 0.90 & 0.87 & 0.00 & 0.00 \\ 
+%  60-64 & 0.88 & 0.83 & 0.00 & 0.00 \\ 
+%  65-67 & 0.76 & 0.70 & 0.00 & 0.00 \\ 
+%  70-74 & 0.79 & 0.84 & 0.00 & 0.00 \\ 
+%  75-95 & 0.88 & 0.84 & 0.00 & 0.00 \\ \midrule 
+%  AVG & 0.89 & 0.87 & &  \\ 
+%   \bottomrule
+% \multicolumn{5}{l}{*The estimation sample covers the same} \\
+% \multicolumn{5}{l}{ countries as the Costinot et. al Ricardo estimation}
+%\end{tabular}
+% \end{table}
+% 
+%\begin{table}[H]
+%\centering\caption{ Correlation between network centrality based on the indicator domestic value added exports in 1995 \& 2005 in the estimation sample*} 
+%\label{tab:centrality_year_estimation_sample}
+%\begin{tabular}{l*{4}{c}}
+%  \toprule
+%ISIC Code & Pearson & Spearman& P-val pearson & P-val spearman \\ 
+%  \midrule
+%15-16 & 0.94 & 0.77 & 0.00 & 0.00 \\ 
+%  17-19 & 0.94 & 0.93 & 0.00 & 0.00 \\ 
+%  20 & 0.80 & 0.97 & 0.00 & 0.00 \\ 
+%  21-22 & 0.93 & 0.90 & 0.00 & 0.00 \\ 
+%  23 & 0.96 & 0.68 & 0.00 & 0.00 \\ 
+%  24 & 0.96 & 0.97 & 0.00 & 0.00 \\ 
+%  25 & 0.96 & 0.88 & 0.00 & 0.00 \\ 
+%  26 & 0.86 & 0.89 & 0.00 & 0.00 \\ 
+%  27-28 & 0.90 & 0.95 & 0.00 & 0.00 \\ 
+%  29 & 0.91 & 0.91 & 0.00 & 0.00 \\ 
+%  30-33 & 0.97 & 0.80 & 0.00 & 0.00 \\ 
+%  34-35 & 0.92 & 0.75 & 0.00 & 0.00 \\ 
+%  36-37 & 0.87 & 0.84 & 0.00 & 0.00 \\ 
+%  45 & 0.09 & 0.80 & 0.67 & 0.00 \\ 
+%  50-52 & 0.75 & 0.93 & 0.00 & 0.00 \\ 
+%  55 & 0.89 & 0.84 & 0.00 & 0.00 \\ 
+%  60-64 & 0.82 & 0.85 & 0.00 & 0.00 \\ 
+%  65-67 & 0.98 & 0.72 & 0.00 & 0.00 \\ 
+%  70-74 & 0.85 & 0.88 & 0.00 & 0.00 \\ 
+%  75-95 & 0.79 & 0.83 & 0.00 & 0.00 \\  \midrule
+%  AVG & 0.85 & 0.86 &   &   \\
+%   \bottomrule
+% \multicolumn{5}{l}{*The estimation sample covers the same} \\
+% \multicolumn{5}{l}{ countries as the Costinot et. al Ricardo estimation}
+%\end{tabular}
+%\end{table}
+\endinput

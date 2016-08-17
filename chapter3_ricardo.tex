@@ -1,0 +1,98 @@
+%!TEX root=/Users/sergej/Documents/Master/Thesis/main.tex
+\section{Ricardian model}
+\label{sec:Ricardo}
+In this section I  describe the model of \textcite{costinot}. Further,  I discuss a possible generalization of the production structure of this model, which allows me to highlight the implication of IPF. \par
+
+The model of \textcite{costinot} is set up as follows.
+The world economy consists of  $i = 1, \dots, n$ countries and $k = 1, \dots , K $ industries. Further, labour is the only factor of production, which is perfectly mobile across industries and immobile between countries. $L_i $ denotes the number of workers in each country $i$  and $ w_i $ denotes their wage. \par %technology
+
+The authors model the production technology as follows.
+Each industry produces a good with a constant returns to scale technology.
+Further, each good there are indefinitely many varieties $\omega \in \Omega$. Moreover the authors denote with $z^k_i(\omega)$ the number of varieties $\omega$ which can be produced with one unit of labor in country $i$, industry $k$. This labor productivity is for each country, industry and variety a random draw from the Fr{\'e}chet distribution, which is an extreme value distribution. Therefore two parameters $z^k_{i}$ and $\theta$ summarize the  production technology differences across countries and industries. \par
+
+The first term describes the fundamental productivity of industry $k$ in country $i$ due to e.g. climate, infrastructure and institutions, which affect all firms in one country's industry. The variations of $z^k_i$ determine the cross-country differences in relative labor productivity. The second parameter $\theta$ measures intra-industry heterogeneity, which means that it reflects the differences of production know-how across varieties.  Further, $\theta$ is the same for all industries and countries. To highlight the implication of this assumption,
+consider e.g. the productivity in the manufacturing industries 'food and beverages' and 'machinery and equipment'  the assumption implies that  productivity differences between industries are the same in each country.\par %trade cost % technical assumptions
+
+%Transport Cost
+Additionally, they model transport cost using Samuelson{'}s iceberg form.
+Therefore of every shipped unit of a good, a certain share of the value of the shipped good 'melts' away  \parencite[p.78]{combes}.
+ Formally, for every unit shipped only the fraction $1/d^k_{i,j} \leq 1$ arrives.
+ Further, the authors assume that no cross-country arbitrage is possible.
+  Therefore it is for any third country, more expensive to indirectly import a good than to directly import it.
+  Further to show that their model makes a theoretical prediction of a relation between exports and productivity differences,
+  the authors assume that trade cost between country $i$ industry $k$ and country $j$  can be decomposed into a country pair $\delta_{i,j}$
+  and destination-industry specific trade cost $\delta^k_j $, therefore $\delta^k_{i,j}=\delta^k_j \delta_{i,j}$.  \par % consumer problem
+ \pqr  %\footnote{ The main motivation of iceberg trade cost is that it facilitates general equilibrium modeling, as it allows to not model the transport industry  \parencite{krugman1998}. Empirically however there is no good reason to   \parencite{krugman1998}.}.
+Further the model assumes that the market structure is perfect competition.
+Therefore each consumer seeks the lowest price of each variety of a good.
+The perfect competion assumption implies together with the constant returns to scale production technology that $p^k_{i,j}=min_{1 \leq i \leq I}c^k_{i,j}$,
+The cost of producing and shipping one unit of the variety are as follows $c^k_{i,j}=\frac{d^k_{i,j} w_i}{z_i^k}$.
+The price a customer pays for a variety of a good is therefore a composite of the production cost $\frac{w_i}{z_i^k}$
+and the shipping cost $d^k_{i,j}$.  \par
+The utility function of the representative consumer is a two-tier utility function.
+The upper-tier utility function is a Cobb-Douglas function, where the elasticity of substitution depends only on the number of goods \parencite[p. 129]{helpman}.
+The lower-tier utility function is a constant elasticity of substitution utility function.% \footnote{The constant elasticity assumption implies that opening up to trade has no pro-competitive effects.}, which assumes that all variety are symmetric \textcite[p. 117]{helpman}.
+The consumer preferences show a 'love-for-variety' property, because the consumer welfare increases monotonically with the number of goods  for a given level of expenditures on goods and a given price of a variety  \textcite[p. 118]{helpman}.
+ The assumption implies that the total expenditure of any country $j$ on a variety of a good depends on the pattern of relative prices and the share of income $\alpha^k_j$ it spends on the particular good.
+\begin{align*}
+x^k_{j}(\omega)= \frac{(p^k_{j}(\omega) } {p^k_{j} }^{1-\sigma_{j}^k}  \alpha^k_j Y_j \\ \text{where} 0 \leq \alpha_j^k < 1,\sigma_{j}^k < 1+\theta \, \text{and} \, {p^k_{j} =[ \sum_{\omega' \in \Omega} p_k^j (\omega')}^{1-\sigma_j^k}]^{1/({1-\sigma_j^k})    }
+\end{align*}  %preferences
+A final assumption, which closes the model is that  trade is balanced across countries.
+
+ The authors prove that under this assumptions the ranking of fundamental productivity fully determines the ranking of relative exports.
+\par
+ Further, the authors prove following theorem, which describes that the ratio of relative exports of country $i$ and $i'$ to country $j$ in industry $k$ and $k'$ is predicted by the relative ratio of productivity and the relative ratio of trade cost. \parencite{costinot}.
+\[ \ln \left( \frac{\tilde{x}_{i,j}^k \tilde{x}^{k'}_{i'j}}{\tilde{x}_{i,j}^{k'} \tilde{x}^{k}_{i'j}} \right)= \theta \ln \left( \frac{\tilde{z}_{i}^k \tilde{z}^{k'}_{i'}}{\tilde{z}_{i}^{k'} \tilde{z}^{k}_{i'}} \right)-\ln \left( \frac{ d_{ij}^k d^{k'}_{i'j}}{d_{i,j}^{k'} {d}^{k}_{i'j}} \right) \]
+%The logic behind equation (11) is fairly intuitive. In a given industry k, if country i is more open
+%than country i' then country i will tend to produce a smaller, but more productive
+%subset of varieties. Hence, observed relative productivity will be higher than fundamental
+%relative productivity . The second term on the right-hand side of equation (11) exactly
+%corrects for this trade-driven selection.
+where $\tilde{x}_{i,j}^k \equiv x_{i,j}^k -  \tilde{\pi}^k_{i,i} $ denote openness corrected exports and $\tilde{z}_{i,j}^k$ denotes observed productivity.
+Observed productivity is closely linked to fundamental productivity. %is $\frac{{z}_{i,j}^k \tilde{z}^{k'}_{i',j}}=\left(\frac{\tilde{z}_{i,j}^k \tilde{z}^{k'}_{i',j}} \right)\left(\frac{ \tilde{\pi}^k_{i,i} } {\tilde{\pi}^k_{i',i'} \right)^{1/ \theta}$.
+Moreover in their model  with perfect competition and labor as sole production factor, and the stochastic productivity differences they show that the relative productivity differences are fully reflected in the producer prices.
+This theorem shows that the pattern of trade across countries is determined by productivity differences and trade cost. It is the core of the Ricardo model.
+ In the Ricardian model of the authors the relative productivity differences should be fully reflected in the producer prices.
+Based on this theorem they arrive at the following log-linear model.
+\[ \ln \left( \frac{\tilde{x}_{i,j}^k \tilde{x}^{k'}_{i'j}}{\tilde{x}_{i,j}^{k'} \tilde{x}^{k}_{i'j}} \right)= \theta \ln \left( \frac{\tilde{z}_{i}^k \tilde{z}^{k'}_{i'}}{\tilde{z}_{i}^{k'} \tilde{z}^{k}_{i'}} \right)+\ln \left( \frac{ \tilde{\epsilon}_{ij}^k \tilde{\epsilon}^{k'}_{i'j}}{\tilde{\epsilon}_{i,j}^{k'} {\epsilon}^{k}_{i'j}} \right) \]
+A more simple version of the model above, which is econometrically equivalent is as follows.
+  \begin{align}
+  \label{eq:1} \ln \tilde{x}_{i,j}^k=\delta_{i,j}+\delta_j^k + \theta \ln\tilde{z}_i^k
++\epsilon^k_{i,j}
+ \end{align}  .
+The \cref{eq:1} states that the openness corrected exports  $\tilde{x}_{i,j}^k \equiv x_{i,j}^k -  \tilde{\pi}_{i,i} $ from industry $k$ in exporting country $i$ to importing country $j$ are predicted by the observed productivity $\ln\tilde{z}_i^k$,  exporter-importer fixed-effects $\delta_{i,j}$ and importer-industry fixed-effects $\delta_j^k$. \textcite{costinot} interpret the equation as an analogue to a 'difference-in-difference' estimation.
+The productivity term in \cref{eq:1} is net of specific trade barriers $\delta_{i,j}$ between country $i$ and $j$ like distance and net of trade barriers $\delta_j^k$ specific imposed by the importing country$j$ on the $k$ goods \footnote{The latter fixed-effect include as well  trade protection in line with the most-favorite nation (MFN) clause of the WTO \parencite{costinot}. The MFN clause is that a country can not offer less favorable conditions to a party e.g. an investor of an agreement than to any other investor in the same specific matter from a third country  \parencite{oecd-mfn}.}. Further the error term $\epsilon^k_{i,j}$ includes variable trade cost and other components. \par
+Further from the Ricardo model one can obtain easily a structural RCA measure. The following two equations are based on the model. The second equation describes the regression of exports from country i to country j in industry $k$ on the full set of fixed effects.
+   \begin{align} \label{eq:2}\ln {x}_{i,j}^k=\delta_{i,j}+\delta_j^k + \theta \ln\tilde{z}_i^k
++\epsilon^k_{i,j} \\
+\ln {x}_{i,j}^k=\delta_{i,j}+\delta_j^k + \delta_i^k + \epsilon^k_{i,j}
+ \end{align}
+Simple transfromations of the equations lead to the following relation for the fundamental productivity.
+ \begin{align*}
+  z^k_i=e^{{\delta_i^ k}/{\theta}}
+  \end{align*}
+%generalized to allow IPF
+\subsection{Ricardo model and IPF}
+In this model the exports of an industry in a particular country are completely produced in this country with one factor of production, labor as factor.
+ The literature on IPF however suggests that taking into account of the increased trade of intermediaries is important to understand the pattern of value-added.
+  Therefore in this section I generalize the models cost function to introduce inputs as additional production factors. \par
+\textcite{costinot} noted their theoretical framework is a comparative cost setup.
+Further, they emphasized that the one to one relation between costs and relative producer prices holds due to the assumption of perfectly competitive markets.
+ The authors therefore conclude that it is not important if the differences in producer prices are due to factor abundance or productivity.
+ Further, they argued that under more general production structure with several production factors, the estimation equation 2.1 would still hold.
+ However, the interpretation of $\theta$ would change to multi-factor productivity. \par  I will first outline the connection of the model to a relative cost setup.
+From  functional form of total expenditure and the perfect competition market structure it follows that bilateral trade satisfies the following relation \begin{align}
+ x^k_{i,j}= \frac{(c^k_{i,j})^{ -(\theta) } } { c_{i',j,k}^{-(\theta) } }  \alpha^k_j Y_j
+\end{align} with $c^k_{i,j}=\frac{d^k_{i,j} w_i}{z_i^k}$.
+ The bilateral trade equation above states that the difference of relative unit cost together with the demand in country $j$ for the goods $k$ determine the trade flows from industry $k$ in country $i$ to country $j$.
+% Inserting the cost function into this equation and express the left hand side as in the theorem, one obtains the theorem, which shows that the bilateral trade flows are determined by productivity differences.
+ \par
+ However, the simple relation becomes more complex if one generalized the cost function such that several production factors e.g. intermediate inputs and capital are used in different shares in each industry.
+ To highlight this point, I use a production function similar to \textcite{Shikher}.
+  \[ c^k_{i,j}=\frac{d^k_{i,j}}{z_{i}^k Y_j} w^{\alpha^k}_i r^{\beta^k}_i \rho^{1-\alpha^k-\beta^k}_{i} \].
+  Further, I assume that the industries mix intermediate inputs in fixed proportions.
+   The price of inputs $\rho_i$ is therefore a Cobb-Douglas function of industry prices:
+\[\rho_{i}= \prod\limits_{m=1}^{K}  p^{\eta_{i,m}}_{i}  \] where $\eta_{i,m} \geq 0$ is the share of industry $m$ goods in the intermediate inputs of industry $k$, such that $\sum_{m=1}^K \eta_{i,m}=1, \forall i$.  For this more general cost function the bilateral trade flows would know depend on the production factor usage in the industries and the usage of input prices. \par From this general cost function we may still arrive at the relation in theorem if one assumes that the the factor usage and  assumption. I assume that the share of inputs and production factor usage is not industry specific, and the input structure as well as input shares are the same for each industry the simplifies \[ c^k_{i,j}=\frac{d^k_{i,j}}{z_{i}^k } w^{\alpha}_i r^{\beta}_i \rho^{1-\alpha-\beta}_{i,k} \]. where
+$\rho^k_{i}= \prod\limits_{m=1}^{K}  p^{\eta_{i,m}}_{i}  $.
+ This general cost function would then still produce a simple expression as in the theorem.
+\endinput

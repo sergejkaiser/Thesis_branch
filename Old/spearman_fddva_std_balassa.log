@@ -1,0 +1,40 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.8.30)  8 JAN 2016 18:44
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**spearman_fddva_std_balassa.tex
+(./spearman_fddva_std_balassa.tex
+LaTeX2e <2015/01/01> patch level 2
+Babel <3.9m> and hyphenation patterns for 79 languages loaded.
+
+./spearman_fddva_std_balassa.tex:3: LaTeX Error: Environment tikzpicture undefi
+ned.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 \begin{tikzpicture}
+                       [x=1pt,y=1pt]
+? 
+./spearman_fddva_std_balassa.tex:3: Emergency stop.
+ ...                                              
+                                                  
+l.3 \begin{tikzpicture}
+                       [x=1pt,y=1pt]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+ 
+Here is how much of TeX's memory you used:
+ 7 strings out of 493091
+ 356 string characters out of 6134964
+ 53225 words of memory out of 5000000
+ 3592 multiletter control sequences out of 15000+600000
+ 3640 words of font info for 14 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 5i,0n,4p,91b,16s stack positions out of 5000i,500n,10000p,200000b,80000s
+./spearman_fddva_std_balassa.tex:3:  ==> Fatal error occurred, no output PDF fi
+le produced!

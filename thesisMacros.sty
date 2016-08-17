@@ -1,0 +1,201 @@
+%% "\ifthenelse"
+%\RequirePackage{ifthen}
+%% font encoding vector
+%\usepackage[T1]{fontenc}
+%% set up language support
+\usepackage[english]{babel}
+%% AMS math
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{anyfontsize}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+%% set graphics support (to include pictures etc.)
+\usepackage{graphicx}
+%\usepackage{subfig}
+\usepackage{makeidx}
+%% allows to convert .eps files automatically to .pdf 
+%% needs 'shell-escape' to be active (see documentation of epstopdf)
+%\usepackage{epstopdf}
+%% set up color support
+\usepackage{color}
+%% dynamic cross referencing in pdf
+%% draft=false is needed for todonotes
+%% support for listing of code
+\usepackage{listings}
+%% support for different styles of todo notes 
+\usepackage[obeyDraft]{todonotes}
+\usepackage{texnames}
+\usepackage{booktabs}                                 
+\usepackage{longtable}
+\usepackage{paralist}
+\usepackage{listings}
+\usepackage{float}
+
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage{picture}
+\usepackage{graphpap}
+\usepackage{siunitx}
+
+
+\usepackage{tikz}
+\usepackage{standalone}
+\usepackage{blindtext}
+\usepackage{dcolumn}
+\usepackage{courier}
+\usepackage{caption}
+
+\usepackage{framed}
+\usepackage{comment}
+\usepackage{xcolor}
+\usepackage{adjustbox}
+
+\usepackage{subcaption}
+\usepackage{filecontents}
+%\usepackage{csvsimple}
+\usepackage{texnames}
+\usepackage{textcomp}
+\floatstyle{plain}	
+\newfloat{Code}{H}{myc}
+
+\usepackage{setspace}
+\makeatletter
+\renewcommand{\onehalfspacing}
+
+\restylefloat{table}
+%\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\newfloat{Code}{H}{myc}
+\newcolumntype{.}{D{.}{.}{-1}}
+\usepackage[colorlinks=true,  breaklinks=false,      linktocpage=false,     linkcolor=black,     citecolor=black, filecolor=black, urlcolor=black, frenchlinks=false, bookmarks=true, bookmarksopen=true,bookmarksopenlevel=3, plainpages=false, pdfpagelabels=true]{hyperref}
+\usepackage{cleveref}
+        
+
+
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+
+\usepackage{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+
+%\usepackage[percent]{overpic}
+%\usepackage[section]{placeins}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\newfloat{Code}{H}{myc}
+
+%\usepackage{setspace}\onehalfspacing
+%% optionally set up times text font
+\newcommand{\TimesFont}{\usepackage{times}\usepackage[scaled=0.92]{helvet}}
+\definecolor{kuleuven}{RGB}{29,141,176}
+\definecolor{kuleuven1}{RGB}{82,189,236}
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+
+
+\makeindex
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+%% switch KOMA options for one or two side set up
+%\newcommand{\doppelseitig}{\KOMAoptions{twoside=true, headings=openright}}
+%\newcommand{\einseitig}{\KOMAoptions{twoside=false}}
+
+%% Math Symbols
+%% greek
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gd}{\delta}
+\newcommand{\gep}{\epsilon}
+\newcommand{\gp}{\phi}
+%% use the next macro only if you are sure that you do
+%% need the math symbol ">>" which is the std. use for
+%% for "\gg"
+%\renewcommand{\gg}{\gamma}
+\newcommand{\gk}{\kappa}
+\newcommand{\gl}{\lambda}
+\newcommand{\go}{\omega}
+\newcommand{\gs}{\sigma}
+\newcommand{\gt}{\theta}
+\newcommand{\gz}{\zeta}
+\newcommand{\vp}{\varphi}
+\newcommand{\vt}{\vartheta}
+\newcommand{\gD}{\Delta}
+\newcommand{\gG}{\Gamma}
+\newcommand{\gL}{\Lambda}
+\newcommand{\gO}{\Omega}
+\newcommand{\gP}{\Phi}
+%% math calligraphy
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+%% math blackboard bold
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\J}{\mathbb{J}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\Y}{\mathbb{Y}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+%% AMS Theorem Environments
+\theoremstyle{plain}% default
+\newtheorem{claim}{Claim}
+\newtheorem{case}{Case}
+\newtheorem{condition}{Condition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{theorem}{Theorem}
+%% misc
+\allowdisplaybreaks[1]
+\newcommand{\nocolorlinks}{\hypersetup{linkbordercolor=1 1 1, citebordercolor=1 1 1}}
+
+
+\captionsetup[subtable]{position=top}

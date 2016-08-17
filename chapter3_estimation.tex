@@ -1,0 +1,241 @@
+%!TEX root=/Users/sergej/Documents/Master/Thesis/main.tex
+\section{Estimation method}
+In this section I describe the estimation procedure of  $\theta$ and the industry exporter fixed effects  to construct the structural RCA measure.
+Two aspects of the estimation are central in this section.
+Firstly, I motivate why I estimate $\theta$ with an instrumental variable (IV) regression.
+Secondly, I discuss the missing data techniques, which I employ in the estimation.
+In the last step, I describe the construction of the sample.
+\par %Moreover, I discuss a robustness check of the log linear specification of the regression with a Poisson pseudo maximum likelihood estimation as proposed in \textcite{silva}. \par
+%\subsection{Endogeneity and Errors in Variables}
+%\textcite{costinot} estimate the regression in equation \ref{eq:1} with OLS and IV methods.\par
+Estimating  $\theta$ using OLS yields unbiased  and consistent interference if the independent variable is uncorrelated with the error term.
+To assess this assumption it useful to highlight the interpretation of the error term in the model.
+The error term may be interpreted as variable trade cost and other unobserved time varying variable.
+Hence, the assumption requires that the inverse of producer prices should be uncorelated to variabel trade cost.
+\par
+\textcite{costinot} highlight two reasons, why they think that an IV estimation may be necessary.
+The first reason is a simultaneity bias.
+Agglomeration effects, e.g. positive spillover from an exporting firm on the exports of other firms in spatial proximity (\cite{bernard2004} )., could cause a simultaneity bias.
+The sign of the bias is a priori ambiguous \parencite{costinot}. \par
+Second, a measurement error may cause the estimate to be biased toward zero.
+In  general in can be shown that if the dependent variable is measured with a random error the estimated coefficient would be biased towards zero \textcite{angrist2008mostly}.
+Both biases cause an endogeneity problem, which may be solved using an IV estimation  \parencite[p.139]{Dhaene}. \par
+Finally, under a more general cost function the inverse of producer prices may reflect other sources of comparative advantage than productivity differences.
+The IV estimation of the producer prices with the instrument R \& D expenditure may lead to a better identification of the effects of productivity.
+ \par
+The IV estimation correctly estimates a causal effect  if the instrument satisfies  two assumptions.
+The exclusion assumption requires that the instrument is uncorrelated with the error term \parencite{cameron2009}.
+In other terms, the instrument R \& D expenditures should only affect the independent variable gross exports through the endogeonous producer prices.
+Further, the relevance assumption requires that  the instrument is sufficiently strong correlated with the endogenous regressor.
+ \par%In the next paragraph, I discuss the consequences if the second assumption is violated.\par
+ The motivation to use  R \& D expenditures as instrument are as follows.
+ Firstly, I expect that higher R \& D expenditures
+ increase the productivity of a industry.
+ In our model the lower production cost would be passed through to the producer pirce and hence increase the exports.
+ According to this relationship, I expect that in the first stage the coefficient of R\& D expenditures is positive and statistical significant.
+ Such an relationship between productivity of industries and R\&D is e.g. hypothesized in \textcite{Griffith-R_D-2004}.
+ Moreover, under this hypothesis R\&D as an instrument would also satisfy the second assumption, which can not be empirically tested \parencite[p.109]{cameron2009}.
+Secondly, R\&D is used as an instrument in both \textcite{costinot} and \textcite{eaton}. \par
+However, if R\&D would not be sufficiently strong correlated wit the endogeneous regressor, it
+would be a weak instrument.
+A weak instruments causes two problems. Firstly, the IV estimator would not
+ identify the causal effect of the endogenous variable  \parencite{bound}.
+Moreover,  the IV estimate becomes inconsistent if the weak instrument is correlated with the error term \parencite{bound}.
+In the estimation, I report the first-stage F-statistic of the excluded instrument.
+As a rule-of-thumb a weak instrument can be ruled out if this F-statistic exceeds 10 \parencite{Stock-Staiger}.   \par
+
+%The Kleibergen-Paap rk Wald F-statistic of \textcite{Kleibergen06} can be used to test for a weak identification problem. The test statistic is  a heteroscedasticity-robust. The critical values for a test using this test-statistic at the 5 \% level that relative bias of the IV is lower than ten percentage is 16.38. Although the thresholds was obtained by \textcite{stock} for a homoscedastic alternative of the test statistic, it may be used with caution for the robust alternative  \parencite{Baum07}. \par %critical values for the Cragg-Donald-Wald F-test statistic, such that the relative bias of the IV estimate compared to OLS is below a certain threshold. The critical value for the test of a significance of 5\% that the IV bias relative to the OLS bias is less than ten percent is 16.38 \parencite{stock}. . \par
+%\subsection{Poisson maximum likelihood}WARN - I didn't find a database entry for 'Leromain' (section 0)
+%WARN - I didn't find a database entry for 'daudin' (section 0)
+%WARN - I didn't find a database entry for '(' (section 0)
+%WARN - I didn't find a database entry for 'bladwin' (section 0)
+%WARN - I didn't find a database entry for 'Costinot' (section 0)
+%WARN - I didn't find a database entry for 'Eaton' (section 0)
+\subsection{Missing data imputation -- work in progress}
+%First motivate why multiple imputation
+%second sketch technicql
+ %motivation still sketchy
+%In the data set, I have missing data in the variables, R \& D and producer prices.
+Concerns about missing data are (1) efficiency losses (2) complications in data handling and data analysis (3) bias due to differences between the observed and unobserved data \parencite{schafer1998multiple}.
+In the first sample, I have missing data in the instrumental variables, R \& D.
+The concern for the IV estimation here, are that efficiency losses in the first stage regression may reduce the strength of the first stage association between R\&D and the inverse of producer prices.
+ The second stage IV estimates would therefore show upward biased estimate of $\theta$.
+%For these reasons I will impute the instrumented and instrumental variable.
+In the following I motivate and describe the employed missing data technique.  \par
+ %motivate choice of technqiue
+To impute the missing data I used the method of multiple imputation, which is a Bayesian technique to impute missing data by simulated draws from the posterior predictive distribution\footnote{The posterior distrubiton is in Bayesian interference obtained by divding the product of the assumd prior distribution and the Likelihood by normalizing constant.
+The  posterior predicitive distribution describes the predicted value average over the posterior distribution. } \textcite{Rubin1987}.
+It was initially proposed in \textcite{rubin1978} for nonresponse in surveys and it's statistical properties were developed in  \textcite{Rubin1987}.
+I chose multiple imputations for the following reasons.
+Firstly, techniques  ignoring the missing observations in the analysis as e.g complete case methods or case-wise deletion require stronger assumptions about the missing data.
+Ignoring the missing observations leads to unbiased interference if the missing data is a random subset of all observations \parencite{bhaskaran}.
+%In the analysis I would therefore assume that the probability of missing values in the producer prices or R\&D are independent of the observed data.
+Secondly, single imputation methods do not take into account the uncertainty induced by the missing values and
+as a result the estimated variances would be downward biased \parencite{Wooldridge}.
+%Finally, maximum likelihood techniques are case specific and are difficult to implement \parencite{schafer1998multiple}.
+Multiple imputation offers a  simple and general approach to deal with missing data, which correctly accounts for the uncertainty induced by missing observations \parencite{schafer1998multiple}.
+ \par
+In the following, I outline multiple imputation based on \textcite[p.209-211]{Little:2002a}.
+Initially I describe certain assumptions and some notation, which I use in the outline of multiple imputation.
+To start with I assume that the indicators of missing values are random variables with a distribution.
+Additionally, I assume probability of missingness depends only on observed data and is independent of unobserved data.
+Further, I denote with $\kappa$ the parameter of interest.\par
+Multiple imputation is a  simulation method to impute missing values by draws based on the predictive posterior distribution.
+The basic idea is to relate the observed posterior distribution to the complete-data posterior, which would be observed in the absence of missing data.
+It can be shown that the complete-data posterior distribution can be simulated by drawing the missing observations from the joint posterior distribution of the missing data and the observed data.
+The predicted missing values are used to impute the data set.
+The estimate of the parameter is obtained by drawing from the complete data posterior distribution.
+Moreover, if the complete data posterior mean and variance are of interest only, these quantities can be obtained by simulated draws
+from the predictive posterior distribution.
+Specifically, the posterior mean is obtained by taking the mean of simulated draws from the predictive posterior distribution $\kappa=1/m \sum_{imp=1} ^m \kappa^{imp}$.
+Slightly more complex, the variance is a combination of the average of the variance of each imputed data set and the between imputations variance $Var(\kappa|X)=\sqrt{\bar{V}+ 1/(m-1)*B}m \, where B=1/{M-1}*\sum_m=1^M(\kappa_m-\bar{kappa}_m)^2 \, \text{and} \,\bar{V}=1/M * sum_m=1^M V_m \, \text{with} V_M=Var{X_obs,X_mis^(d)}$.
+\par
+The strength of the multiple imputation method allows is that the imputation and the analysis model can be different \textcite[p.217]{Little:2002a}.
+The interference obtained is valid and leads only in extreme cases
+%Van Buren The assumption of ignorability is essentially the belief on the part of the user that the available data are sufficient to correct for the effects of the missing data. The assump- tion cannot be tested on the data itself, but it can be checked against suitable external validation data
+\par
+%Therefore multiple imputation can be regarded as three step procedure.
+After the imputation complete-data methods can be used independently on the $M$ data-sets and the mean and the variance can be pooled based on simulated draws as described.
+In a first step the data set is imputed using simulated draws and in the second step complete-data methods can be used on the $M$ data sets and in the third step the results are pooled.
+% Another multivariate imputation method, which can be used with multiple imputation, is the fully conditional specification.
+% This approach, which is also known as sequential regression or chained equaitions, splits the problem of imputing a joint distribution into several univariate problems \textcite{van2007multiple}.
+% %In this approach I specify for each variable with missing data a conditional specification.
+% I choose the fully conditional specification (FCS)  due to the flexibility.
+% Further, using FCS I specify the imputation model at the variable level, which allows a more credible imputation \textcite{van2000mice}.
+% A draw back of the FCS  is that the method is theoretically not well understood   (\textcite{van2007multiple}).
+% However, several simulation studies indicate that for a wide range of applications the approach yields unbiased estimates (\textcite{van2007multiple},\textcite{van2006fully}). \par
+% The description of the approach is founded on the outlines in \textcite{Morris2014} and \textcite{royston2011multiple}.
+% In the inital step  of FCS each variable with missing values is regressed on each other.
+% In the next step the missing values are replaced by draws from the predictive posterior distribution and the initial step is repeated.
+% The two steps are called a cycle.
+% Usually, several cycles are conducted for each of the $M$ imputations until the algorithm converged to the implicit joint distribution  (\textcite{van2007multiple}).
+%  \par
+ Moreover, I combine multiple imputation with predictive mean matching (PMM).
+ PMM  is a nearest neighbor matching technique suggested by \textcite{Rubin_matching}.
+In the framework of MI the PMM technique replaces imputes the missing data with draws from the observed data, which are the closested to the values of a simulated regression model.
+Because the missing data is imputed from the observed data, the distribution of the imputed variables is similar to the observed variables. \par
+The imputation method is suited to impute skewed variables, which would violate the normality assumption invoked by multiple imputation using regression techniques \parencite{White_MI_chained}.
+Both imputed variables R\&D and producer prices are highly skewed variables.
+Moreover, simulation studies analyzing MI with PMM  found that the imputation results were efficient and unbiased \textcite{Morris2014}.   \par
+In the following I outline PMM based on \parencite{White_MI_chained}.
+Initially, each missing variable is regressed on the imputation model and the other variables with missing values.
+From this regression a set of estimates $\beta$ and corresponding variances $V$ are obtained.
+ Further, a simulated $\beta^*$ is than obtained from a multivariate normal distribution.
+The imputation of the missing values is based on a random draw from the $q$ \footnote{I chose $q= 10$, therefore the missing value is filled by a random draw from the 10 closest observations.
+ This choice rests on the recommendations in the simulation study of \textcite{Morris2014}.} closest observations, which minimize the distance between the product of the predicted value of the regresion $\beta x_h$ and the predicted values based on the simulated parameter $\beta^* x_h$.
+%In the following step, the $q$  observations with the smallest difference between the $\beta$ and $\beta^*$ are identified and from the $q$ closest observations one observations is randomly chosen as imputed value.
+  \par
+  I implemented the imputation as follows.
+  First, I decided to impute both independent and the dependent variable of the first stage regression.
+  Therefore both variables R\& D and producer prices are imputed.
+  In this choice, I follow the recommendation in the simulation study \textcite{Moons:2006a}, which found that multiple imputation without imputing the outcome leads to biased results. \par
+Moreover, I included in the regression imputation model country and industry fixed effects dummies.
+ %Moreover, the imputation method  I chose requires that the probability of an missing observations after controlling for observed variables does not depend on unobserved variables \textcite{White_MI_chained}.
+%  In econometrics terminology, ignorable may be interpreted as exogeneous.
+The country and industry fixed effect as covariates account for the variation at country and industry level.
+The fixed effects variables should therefore account for the time-invariant determinants of both variables.
+Moreover, the imputation of the log of R\&D in \textcite{costinot} was based on the same covariates.
+  % \subsection{Sample}
+% I have created two samples for the estimation the RCA.
+% The first smaller estimation sample, constis of the international price data from the GGDC \parencite{Inklaar2012}, the value-added exports and gross exports data from the \cite{tiva2}  database, and R \&D expenditure data from the \textcite{stan2} ANBRED.
+% To construct the sample I merged the data sources using the ISIC Rev.3.1 two digits classification.
+% Especially, I to allow merging of the international price data I aggregated several service industries using a weighted average. I chose the weights to be equal to the sectoral share of value added output constructed with the data from the \textcite{OECDSTAN} STAN database. \par
+% Further, I constructed a larger fixed effect sample to obtain the exporter-industry fixed efffect.
+% The sample includes nearly the complete countries of the TiVA, as it only requires gross exports and value-added export data.
+% I made several adjustments to the sample industry and country coverage due to missing observations. First, concerning the industry coverage I excluded the "Utilities" industry from all estimations due to missing observations.
+% Further I excluded certain countries (Malta, Island, Costa Rica, Brunei Darussalam, Cambodia) because they had no positive exports in at least one sector in 2005.
+% Especially, the last two countries recorded many zero exports. The data recorded for both countries positive exports in less than fifty percent of the cases.
+% Further, I excluded Saudi Arabia from the estimations because it exports mainly oil. Hence, I expect that for Saudi Arabia the soruces of CA are rather factor endowments than productivity differences.
+% E.g. in 2005 the share of petroleum exports accounts for  90\% of the fob exports of Saudi Arabia \parencite{opec}.
+\endinput
+%  In the first step each missing value is imputed with value from random sampling with replacement from the observed values.
+%"Multiple imputation using chained equations: Issues and guidance for practice" Ian R.White,a ?? Patrick Roystonb and AngelaM.Woodc
+ %Initially, all missing values are filled in by simple random sampling with replacement from
+%the observed values. The first variable with missing values, x1 say, is regressed on all other variables x2, . . . , xk , restricted
+%to individuals with the observed x1. Missing values in x1 are replaced by simulated draws from the corresponding
+%posterior predictive distribution of x1. Then, the next variable with missing values, x2 say, is regressed on all other
+%variables x1, x3, . . . , xk , restricted to individuals with the observed x2, and using the imputed values of x1. Again, missing
+%values in x2 are replaced by draws from the posterior predictive distribution of x2. The process is repeated for all other
+%variables with missing values in turn: this is called a cycle. In order to stabilize the results, the procedure is usually
+%repeated for several cycles (e.g. 10 or 20) to produce a single imputed data set, and the whole procedure is repeated m
+%times to give m imputed data sets.
+% 4.2. Predictive mean matching
+%Predictive mean matching (PMM) is an ad hoc method of imputing missing values of z with the property that imputed
+%values are sampled only from the observed values of z [22]. The consequence is that the distribution of imputed z often
+%closely matches that of the observed z. Such a property is desirable, for example, when z is continuous and the Normality
+%assumption is untenable, or when the relationship between z and x is non-linear. It is undesirable when imputation
+%appropriately involves extrapolation beyond the range of the observed values of z, or possibly when the sample size is
+%small (since then only a small range of imputed values is available).
+%To use PMM, the standard method described in Section 2.1 is used to give a perturbed parameter vector b
+%?. For each missing value zi with covariates xi , the standard procedure would next sample from a Normal distribution with
+%mean b?xi . Instead, PMM identifies the q individuals with the smallest values of |b*x_h?b*x^*_i | (h=1, . . . ,nobs). Any
+%ties are broken at random. One of these q closest individuals, say i , is chosen at random, and the imputed value of
+%zi is zi  . Thus the imputed value is an observed value of z whose prediction with the observed data closely matches
+%the perturbed prediction. We use q=3, which performed well in a simulation study, although a more complex adaptive
+%method performed better [23].
+%  The MI technique consists of three steps:
+%1 Imputation. Replace missing values with M sets of plausible values according to an imputation model (e.g., Rubin 1987; Schafer 1997) to create M completed datasets.
+%2 Completed-data analysis. Perform primary analysis on each imputed (completed) dataset to obtain a set of completed-data estimates q?i and their respective VCEs U?i, i = 1,...,M.
+%3 Pooling. Consolidate results from the completed-data analyses {q?i,U?i}Mi=1 into one MI inference using Rubin?s combination rules (e.g. Rubin 1987, 76).
+%mi impute assumes that missing data are missing at random; that is, missing values do not carry any extra information about why they are missing than what is already available in the observed data.
+%mi impute creates imputations by simulating from a (approximate) Bayesian posterior predictive distribution of the missing data, following Rubin?s recommendation.
+%Methods and formulas
+%mi impute pmm follows the steps as described in Methods and formulas of [MI] mi impute regress
+%with the exception of step 3.
+%Consider a univariate variable x = (x1, x2, . . . , xn)
+%0
+%that follows a normal linear regression model
+%xi |zi ? N(z,_i?, ?2)) (1)
+%where zi = (zi1, zi2, . . . , ziq)
+%records values of predictors of x for observation i, ? is the q � 1vector of unknown regression coefficients, and ?2 is the unknown scalar variance. (Note that when
+%a constant is included in the model?the default?zi1 = 1, i = 1, . . . , n.) x contains missing values that are to be filled in. Consider the partition of x = (x0o
+%, x'm) into n_0 � 1 and n_1 � 1 vectors containing the complete and the incomplete observations. Consider a similar partition of Z = (Zo, Zm) into n0 � q and n1 � q submatrices.
+%mi impute pmm follows the steps below to fill in xm (for simplicity, we omit the conditioning on the observed data in what follows):
+%1. Fit a regression model (1) to the observed data (xo, Zo) to obtain estimates ?b and ? 2
+%of the model parameters.
+%2. Simulate new parameters ? and ?2
+%from their joint posterior distribution under the conventional noninformative improper prior Pr(?, ?2 ) ? 1/?2
+%. This is done in two steps:
+%?^*2 ? ?2
+%(n0 ? q)/?2
+%n0?q
+%?|?2 ? N(n?b, ?2(Z0oZo)?1
+%246 mi impute pmm ? Impute using predictive mean matching
+%3. Generate the imputed values, x
+%1
+%m, as follows. Let xbi be the linear prediction of x based
+%on predictors Z for observation i. Then for any missing observation i of x, xi = xjmin ,
+%where jmin is randomly drawn from the set of indices {i1, i2, . . . , ik} corresponding to
+%the first k minimums determined based on the absolute differences between the linear
+%prediction for incomplete observation i and linear predictions for all complete observations,
+%|xbi ? xbj |, j ? obs. For example, if k = 1 (the default), jmin is determined based on
+%|xbi ? xbjmin | = minj?obs|xbi ? xbj |.
+%4. Repeat steps 2 and 3 to obtain M sets of imputed values, x
+%1
+%m, x
+%2
+%m, . . . , xM
+%m
+%Source    Yulia Marchenko (StataCorp) Multiple-imputation analysis using Stata's mi command September 10, 2009  2009 UK Stata Users Group Meeting
+% \endinput
+% \begin{comment}
+% \subsection{Estimation of log linear model and the Poisson pseudo maximum likelihood}
+% Further, \textcite{silva} strongly recommended to use the PPML estimator instead of the OLS for estimation problems as  presented in equation 2.1. They showed that  estimating a model equation in a log linear fashion  is only consistent, under very strong functional assumptions about the error terms.  Further, the authors highlighted their argument with Monte Carlo simulations. The simulation results indicated that under heteroscedasticity OLS estimates were biased. The PPML estimator showed unbiased estimates. In the following I  outline the authors argument in a regression model similar to 2.1 . \par
+% The stochastic formulation of the log linear model holds for each observation only up to a stochastic error $x_{i}-E(x_{i}|z_{i} \theta)=\epsilon_{i}$. The  model is as follows $x_{i}=\exp(z_{i}  \theta)+\epsilon_{i}$, with  $x_{i} \geq 0$ and $E[\epsilon_{i}|z_{i}]=0.$ \par
+% The estimation of the model in this form may be inconsistent for two reasons.
+% First, if $x_{i}$ takes values equal to zero. Second the log linear model the error will in general will depend on the covariates. In the following I outline this. Reformulating the model equivalently so that $x_{i}=exp(z_{i} \theta) \eta_i$, where $\eta_{i}$ is defined as $v_{i} * exp(z_{i} \theta)$. Log linearizing this equation  $\log(x_{i})=z_{i} \theta+\eta_{i}$, where  $\eta_i=\exp(z_{i} \theta)*\epsilon_{i}$. This equation is only consistently estimated with OLS, if $\epsilon_{i}=\exp( z_{i}\theta) v_{i}$, where $v_{i}$ is a random variable orthogonal to $x_{i}$. Hence the estimation of the model with OLS requires specific assumptions about the error terms to identify the parameter of interest $\theta$ .
+% \par
+% Further, the authors note that if the statistical independence of $x_{i} $of $\eta_i$ shall hold, it implies that the conditional variance of $x_{i}$ is proportional to $exp(2x_{i} \theta)$. Moreover as the log linear model assumes that $x_{i}$ is a positive integer,  the conditional mean and the probability that   $x_{i}$  is zero have to approach zero.  Therefore the variance has to vanish as  $x_{i}$  approaches zero. For large values of $x_{i}$ however large deviance positive and negative are possible. Therefore the consistency of the OLS estimator requires assumption about the second moment of the distribution to be consistent. For the outlined reasons the authors therefore recommend to estimate
+% \par
+% In the following I describe the necessary transformations to estimate \ref{eq:1} in the multiplicative form with the PPML estimator.  \par First, I transform the estimation equation into the multiplicative by a simple e-transformation $E[x^k_{i,j} | \tilde{z}^k_{i} , \theta]=exp(\delta_{i,j}+\delta^k_j+\theta \ln \tilde{z}^k_i +\epsilon^k_{i,j})$ . Moreover, following the assumption on the form of heteroscedasticity in \textcite{silva}  I assume that that the conditional mean is proportional to the variance. This assumption implies that  all observations are equally weighted.  Formally, \begin{align} \label{eq:4} E[x^k_{i,j} | \tilde{z}^k_{i} ] \propto V[x^k_{i,j} | \tilde{z}^k_{i} ] \end{align}. \par
+%  The estimator  solves the following first order condition  \begin{align} \label{eq:5} \sum_{i=1}^n  (x^k_{i,j}-exp(\tilde{z}^k_{i} \beta)) x^k_{i,j} = 0 \end{align}  As I outline in the next paragraph the estimator solving the first order condition in \cref{eq:5} is similar  to the Poisson pseudo maximum likelihood function. Further, \textcite{silva} note that the estimation such as \cref{eq:5} is numerically equivalent to the PPML.   \par
+% To show that the estimator from \ref{eq:5} is closely related to the PPML, I first briefly review the maximum likelihood estimation (MLE) and subsequently Poisson (pseudo) maximum likelihood estimation. The paragraph closely follows the textbook exposition in \textcite[pp. 117--118]{cameron2009}. \par
+% A maximum likelihood estimator (MLE)  maximizes the log likelihood function. The likelihood function is defined as the joint density of observations from a sample  $(y_i, x_i  \quad i=1, \dots, n)$ .  The variable $y_i$ denotes a dependent variable and $x_i$ denotes the independent variables.  Under the assumption of independence, the joint density is the product of the densities of each observation  $\prod_i f(y_i|x_i, \theta) $,and $\theta$ is the parameter of interest. A log transformation of the joint densities transforms the maximization problem above into the sum of the log density \[\sum_{i=1}^n \log[f(y_i|x_i, \theta)] \]
+% The conditional density function of the Poisson distribution is obtained from the probability mass function$ f(y | \mu )=e^\mu \mu^y / y! \quad y=0,1,2 , \dots $. Further the Poisson distribution has the property of equi-dispersion, which is $E[y_i] = \mu  \quad  \text{and} \quad V[y_i] = \mu  \leftrightarrow E[y_i] = V[y_i]$
+% In the Poisson regression model  the parameter $\mu$ is usually specified as  $\mu=exp(x'\theta)$. Therefore for a single observation the density is \[ f(y_i|x_i,\theta)=\frac{e^{-exp(x_i ' \theta)} exp(x_i'\theta)^y_i}{y_i !}\] \par
+%  The Poisson maximum likelihood estimator $\theta$ maximizes the sum of the log densities of the Poisson distribution  \[ log[L(\theta)]= \frac{1}{N}\sum_{i=1}^n  \{ - exp (x_i'\theta) + y_i x_i'  \theta - \ln y_i! \} .\] The ML estimator $\theta$ therefore solves the following first order conditions \begin{align} \label{eq:qmle}\sum_{i=1}^n ( y_i- exp(x_i \theta)) x_i |_{\hat{\theta}}=0\end{align} The equation has no explicit solution and is therefore solved with numerical methods. As one can see the  first order condition \cref{eq:qmle} and the Poisson maximum likelihood first order condition in \cref{eq:5} are equivalent.  \par
+% Even if the outline before I specifed the dependent variable as a count variable, this is not a necessary conditon for estimating this model. It is
+%   To obtain a correct maximum likelihood estimator the log likelihood function has to be correctly specified. The Poisson maximum likelihood is correct specified if both the conditional mean is correctly specified $E[y_i|x_i]=exp(x' \theta)$ and the equi-dispersion assumption $E[y_i]=V[y_i]$  holds. \textcite{silva} noted, it is unlikely that the latter assumption holds. \par The pseudo maximum likelihood estimation is defined as the maximum likelihood estimation maximizing a misspecified log likelihood \parencite[p.465]{hayashi2011}, which may be a first order or a second order taylor approximation of the true likelihood.  Even if the maximum likelihood is misspecified, it can be shown that the pseudo maximum likelihood estimator is consistent under the condition that ${y_i \ \ \& \ \ x_i}$ are ergodic stationary. Further,
+% the pseudo maximum likelihood is consistent without the assumption of identical and independent distributed error terms \parencite[p.465]{hayashi2011}.
+% %%The international price data of the GGDC database is based on a large sample of gross relative output prices, which are the quotient of purchasing power parities divided by the exchange rate and relative to the USA GDP price level. \textcite{Timmer2012}  obtained the the international sector output prices by estimating reference prices and purchasing power parities at the industry level using a large sample of nominal values of final expenditure and prices collected from various sources.  The estimation procedure is an extension of the system simultaneous equations in \textcite{Feenstra}. In my analysis, I use the inverse of this relative gross output price as an empirical measure of productivity.
+% \end{comment}
